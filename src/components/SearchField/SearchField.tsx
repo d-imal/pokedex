@@ -46,7 +46,18 @@ const SearchField: React.FC = () => {
               <dd>{data.weight}</dd>
               <dt>Abilities:</dt>
               {data.abilities?.map((ability) => (
-                <dd key={ability.ability.name}>{ability.ability.name}</dd>
+                <ul>
+                  <li key={ability.ability.name}>{ability.ability.name}</li>
+                </ul>
+              ))}
+              <dt>Stats:</dt>
+              {data.stats.map((stat) => (
+                <>
+                  <dt key={stat.stat.name}>{stat.stat.name}</dt>
+                  <dd key={stat.stat.name}>
+                    {stat.effort}, {stat.base_stat}
+                  </dd>
+                </>
               ))}
             </dl>
           </>

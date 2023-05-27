@@ -7,7 +7,7 @@ function App() {
   return (
     <div className={styles.root}>
       <SearchField />
-      <SearchResults />
+      {/* <SearchResults /> */}
     </div>
   );
 }
