@@ -5,10 +5,10 @@ import styles from './App.module.css';
 
 function App() {
   return (
-    <main className={styles.root}>
+    <div className={styles.root}>
       <SearchField />
       <SearchResults />
-    </main>
+    </div>
   );
 }
 
