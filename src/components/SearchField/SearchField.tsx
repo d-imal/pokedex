@@ -19,7 +19,7 @@ const SearchField: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <form onClick={handleOnClick}>
+      <form onSubmit={handleOnClick}>
         <label>
           Search:&nbsp;
           <input
