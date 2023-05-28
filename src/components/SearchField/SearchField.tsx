@@ -55,10 +55,43 @@ const SearchField: React.FC = () => {
                 <div key={stat.stat.name}>
                   <dt>{stat.stat.name}</dt>
                   <dd>
-                    {stat.effort}, {stat.base_stat}
+                    <dl>
+                      <dt>Effort:</dt>
+                      <dd>{stat.effort}</dd>
+                      <dt>Base Stat:</dt>
+                      <dd>{stat.base_stat}</dd>
+                    </dl>
                   </dd>
                 </div>
               ))}
+              <dt>Type:</dt>
+              <dd>
+                {data.types?.map((type, i) => (
+                  <li key={i}>{type.type.name}</li>
+                ))}
+              </dd>
+              <dt>Species:</dt>
+              <dd>{data.species?.name}</dd>
+              <dt>Forms:</dt>
+              <dd>
+                {data.forms?.map((form, i) => (
+                  <li key={i}>{form.name}</li>
+                ))}
+              </dd>
+              <dt>Experience:</dt>
+              <dd>{data.base_experience}</dd>
+              <dt>Moves:</dt>
+              <dd>
+                {data.moves?.map((move, i) => (
+                  <li key={i}>{move.move.name}</li>
+                ))}
+              </dd>
+              <dt>Held Items:</dt>
+              <dd>
+                {data.held_items?.map((held_item, i) => (
+                  <li key={i}>{held_item.item.name}</li>
+                ))}
+              </dd>
             </dl>
           </>
         )}
