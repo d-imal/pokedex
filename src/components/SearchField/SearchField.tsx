@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { pokemonApi } from '../../store/reducers/Reducers';
+import { pokemonApi } from '../../store/reducers/PokemonApi';
 
 import classes from './SearchField.module.css';
 

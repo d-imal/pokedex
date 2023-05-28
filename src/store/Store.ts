@@ -1,11 +1,13 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import { pokemonApi } from './reducers/Reducers';
+import { pokemonApi } from './reducers/PokemonApi';
+import searchReducer from './reducers/Search';
 
 export const store = configureStore({
   reducer: {
     [pokemonApi.reducerPath]: pokemonApi.reducer,
+    search: searchReducer,
   },
   devTools: true,
   middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(pokemonApi.middleware),
