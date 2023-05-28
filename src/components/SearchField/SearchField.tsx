@@ -1,16 +1,19 @@
 import React, { useState } from 'react';
 import { pokemonApi } from '../../store/reducers/PokemonApi';
+import { setSearchTerm as persistSearchTerm } from '../../store/reducers/Search';
 
 import classes from './SearchField.module.css';
+import { useDispatch } from 'react-redux';
 
 const SearchField: React.FC = () => {
+  const dispatch = useDispatch();
   const [trigger, { data, error, isLoading }] = pokemonApi.useLazyGetPokemonByNameQuery(); // useGetPokemonByNameQuery('miraidon');
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleOnClick = (e: React.FormEvent) => {
     e.preventDefault();
 
-    setSearchTerm(searchTerm);
+    dispatch(persistSearchTerm(searchTerm));
     trigger(searchTerm);
   };
 
