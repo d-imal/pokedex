@@ -7,7 +7,7 @@ import { useDispatch } from 'react-redux';
 
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
-  const [trigger, { data, error, isLoading }] = pokemonApi.useLazyGetPokemonByNameQuery(); // useGetPokemonByNameQuery('miraidon');
+  const [trigger, { data, error }] = pokemonApi.useLazyGetPokemonByNameQuery();
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   const handleOnClick = (e: React.FormEvent) => {
