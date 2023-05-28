@@ -92,6 +92,12 @@ const SearchField: React.FC = () => {
                   <li key={i}>{held_item.item.name}</li>
                 ))}
               </dd>
+              <dt>Sprites </dt>
+              <dd>
+                <img src={data.sprites?.front_default} alt="pokemon" />
+                {/* <img src={data.sprites?.back_default} alt="pokemon" /> */}
+                <img src={data.sprites?.other['official-artwork'].front_default} alt="pokemon" />
+              </dd>
             </dl>
           </>
         )}
