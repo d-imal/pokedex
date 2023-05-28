@@ -6,8 +6,12 @@ import SearchHistory from './components/SearchHistory/SearchHistory';
 function App() {
   return (
     <div className={styles.root}>
-      <SearchField />
-      <SearchHistory />
+      <div className={styles.search}>
+        <SearchField />
+      </div>
+      <div className={styles.searchResults}>
+        <SearchHistory />
+      </div>
     </div>
   );
 }
