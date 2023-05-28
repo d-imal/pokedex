@@ -2,8 +2,21 @@ import SearchField from './components/SearchField/SearchField';
 
 import styles from './App.module.css';
 import SearchHistory from './components/SearchHistory/SearchHistory';
+import { useEffect } from 'react';
+
+const handleNavigate = (e) => {
+  console.log('navgate', e);
+};
 
 function App() {
+  useEffect(() => {
+    window.navigation.addEventListener('navigate', handleNavigate);
+
+    return () => {
+      window.navigation.removeEventListener('navigate', handleNavigate);
+    };
+  }, []);
+
   return (
     <div className={styles.root}>
       <div className={styles.search}>
