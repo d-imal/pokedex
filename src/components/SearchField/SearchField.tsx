@@ -9,7 +9,7 @@ import classes from './SearchField.module.css';
 
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
-  const [trigger, { data, error }] = pokemonApi.useLazyGetPokemonByNameQuery();
+  const [trigger] = pokemonApi.useLazyGetPokemonByNameQuery();
   const [searchTerm, setSearchTerm] = useState<string>('');
   const persistedSearchTerm = useSelector((state: IRootState) => state.search.searchTerm);
 
@@ -18,7 +18,6 @@ const SearchField: React.FC = () => {
 
     dispatch(persistSearchTerm(searchTerm));
     dispatch(pushTermToHistory(searchTerm));
-    trigger(searchTerm);
   };
 
   useEffect(() => {
