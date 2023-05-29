@@ -16,9 +16,7 @@ const SearchField: React.FC = () => {
 
   useEffect(() => {
     triggerGetAll(undefined);
-  }, [triggerGetAll]);
-
-  console.log(allPokemon);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,7 +28,7 @@ const SearchField: React.FC = () => {
   useEffect(() => {
     setSearchInputValue(searchTerm);
     trigger(searchTerm);
-  }, [searchTerm, trigger]);
+  }, [searchTerm]);
 
   return (
     <div className={classes.root}>
@@ -44,7 +42,7 @@ const SearchField: React.FC = () => {
             onChange={(e) => setSearchInputValue(e.target.value)}
           />
           &nbsp;
-          {allPokemon.data && (
+          {allPokemon.data && searchInputValue.length > 1 && (
             <datalist id="all-pokemon">
               {allPokemon.data.results.map((result) => (
                 <option>{result.name}</option>
