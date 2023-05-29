@@ -33,13 +33,7 @@ const SearchField: React.FC = () => {
       <form onSubmit={handleOnClick}>
         <label>
           Search:&nbsp;
-          <input
-            type="text"
-            value={searchTerm}
-            onChange={(e) => {
-              setSearchTerm(e.target.value);
-            }}
-          />
+          <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
           &nbsp;
         </label>
         <button>Search</button>
