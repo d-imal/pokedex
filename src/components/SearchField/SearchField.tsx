@@ -23,6 +23,7 @@ const SearchField: React.FC = () => {
 
   useEffect(() => {
     setSearchTerm(persistedSearchTerm);
+    trigger(persistedSearchTerm);
   }, [persistedSearchTerm]);
 
   console.log({ persistedSearchTerm });
