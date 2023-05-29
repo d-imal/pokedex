@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { IRootState } from '../../store/Store';
-import { pokemonApi } from '../../store/reducers/PokemonApi';
-import { setSearchTerm, pushTermToHistory } from '../../store/reducers/Search';
+import { pokemonApi } from '../../store/reducers/Pokemon.service';
+import { setSearchTerm, pushTermToHistory } from '../../store/reducers/Search.slice';
 
 import classes from './SearchField.module.css';
 

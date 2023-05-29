@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import { IRootState } from '../../store/Store';
-import { pokemonApi } from '../../store/reducers/PokemonApi';
+import { pokemonApi } from '../../store/reducers/Pokemon.service';
 
 import classes from './SearchResults.module.css';
 

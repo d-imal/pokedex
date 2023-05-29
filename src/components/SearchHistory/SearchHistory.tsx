@@ -3,7 +3,7 @@ import React from 'react';
 import styles from './SearchHistory.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../store/Store';
-import { setSearchTerm } from '../../store/reducers/Search';
+import { setSearchTerm } from '../../store/reducers/Search.slice';
 
 const SearchHistory: React.FC = (props) => {
   const dispatch = useDispatch();

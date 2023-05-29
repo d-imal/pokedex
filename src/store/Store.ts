@@ -1,8 +1,8 @@
 import { configureStore } from '@reduxjs/toolkit';
 import { setupListeners } from '@reduxjs/toolkit/query';
 
-import { pokemonApi } from './reducers/PokemonApi';
-import searchReducer from './reducers/Search';
+import { pokemonApi } from './reducers/Pokemon.service';
+import searchReducer from './reducers/Search.slice';
 
 export type IRootState = ReturnType<typeof store.getState>;
 
