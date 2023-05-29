@@ -1,10 +1,12 @@
 import React from 'react';
 
 import styles from './SearchHistory.module.css';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../store/Store';
+import { setSearchTerm } from '../../store/reducers/Search';
 
 const SearchHistory: React.FC = (props) => {
+  const dispatch = useDispatch();
   const { history } = useSelector((state: IRootState) => state.search);
 
   return (
@@ -18,6 +20,7 @@ const SearchHistory: React.FC = (props) => {
               onClick={(e) => {
                 e.preventDefault();
                 window.history.pushState({ search: term }, '', `/${term}`);
+                dispatch(setSearchTerm(term));
               }}
             >
               {term}

@@ -4,11 +4,10 @@ import styles from './App.module.css';
 import SearchHistory from './components/SearchHistory/SearchHistory';
 import { useEffect } from 'react';
 
-const handleNavigate = (e) => {
-  console.log('navgate', e);
-};
-
 function App() {
+  const handleNavigate = (e) => {
+    console.log('navgate', e);
+  };
   useEffect(() => {
     window.navigation.addEventListener('navigate', handleNavigate);
 

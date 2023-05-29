@@ -1,9 +1,10 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { pokemonApi } from '../../store/reducers/PokemonApi';
 import { setSearchTerm as persistSearchTerm } from '../../store/reducers/Search';
 
 import classes from './SearchField.module.css';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { IRootState } from '../../store/Store';
 
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
@@ -16,6 +17,12 @@ const SearchField: React.FC = () => {
     dispatch(persistSearchTerm(searchTerm));
     trigger(searchTerm);
   };
+
+  const persistedSearchTerm = useSelector((state: IRootState) => state.search.searchTerm);
+
+  useEffect(() => {
+    setSearchTerm(persistedSearchTerm);
+  }, [persistedSearchTerm]);
 
   return (
     <div className={classes.root}>
