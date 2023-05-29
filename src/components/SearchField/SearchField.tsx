@@ -9,13 +9,13 @@ import classes from './SearchField.module.css';
 
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
-  const [trigger] = pokemonApi.useLazyGetPokemonByNameQuery();
-  const [triggerGetAll, allPokemon] = pokemonApi.useLazyGetAllQuery();
+  const [getPokemonByName] = pokemonApi.useLazyGetPokemonByNameQuery();
+  const [getAllPokemon, allPokemon] = pokemonApi.useLazyGetAllQuery();
   const [searchInputValue, setSearchInputValue] = useState<string>('');
   const searchTerm = useSelector((state: IRootState) => state.search.searchTerm);
 
   useEffect(() => {
-    triggerGetAll(undefined);
+    getAllPokemon(undefined);
   }, []);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -27,7 +27,7 @@ const SearchField: React.FC = () => {
 
   useEffect(() => {
     setSearchInputValue(searchTerm);
-    trigger(searchTerm);
+    getPokemonByName(searchTerm);
   }, [searchTerm]);
 
   return (
