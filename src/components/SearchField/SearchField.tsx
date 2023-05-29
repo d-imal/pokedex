@@ -13,7 +13,7 @@ const SearchField: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const persistedSearchTerm = useSelector((state: IRootState) => state.search.searchTerm);
 
-  const handleOnClick = (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     dispatch(persistSearchTerm(searchTerm));
@@ -27,7 +27,7 @@ const SearchField: React.FC = () => {
 
   return (
     <div className={classes.root}>
-      <form onSubmit={handleOnClick}>
+      <form onSubmit={handleSubmit}>
         <label>
           Search:&nbsp;
           <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
