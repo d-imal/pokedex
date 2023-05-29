@@ -61,21 +61,21 @@ const SearchResults: React.FC = () => {
           </ul>
 
           <h2>Stats:</h2>
-          <dl className={classes.statDefinitionGrid}>
+          <div className={classes.statDefinitionGrid}>
             {data.stats.map((stat) => (
-              <>
-                <dt key={stat.stat.name}>{stat.stat.name}</dt>
+              <div>
+                <h3 key={stat.stat.name}>{stat.stat.name}</h3>
                 <dd key={stat.stat.name}>
                   <dl className={classes.statDefinitionList}>
                     <dt>Effort:</dt>
                     <dd>{stat.effort}</dd>
-                    <dt>Base Stat:</dt>
+                    <dt>Stat:</dt>
                     <dd>{stat.base_stat}</dd>
                   </dl>
                 </dd>
-              </>
+              </div>
             ))}
-          </dl>
+          </div>
 
           <h2>Moves:</h2>
           <ul>

@@ -5,7 +5,7 @@ import { Provider } from 'react-redux';
 
 import App from './components/App/App.tsx';
 
-// import './styles/reset.css';
+import './styles/reset.css';
 import './styles/global.css';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
