@@ -10,8 +10,15 @@ import classes from './SearchField.module.css';
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
   const [trigger] = pokemonApi.useLazyGetPokemonByNameQuery();
+  const [triggerGetAll, allPokemon] = pokemonApi.useLazyGetAllQuery();
   const [searchInputValue, setSearchInputValue] = useState<string>('');
   const searchTerm = useSelector((state: IRootState) => state.search.searchTerm);
+
+  useEffect(() => {
+    triggerGetAll(undefined);
+  }, [triggerGetAll]);
+
+  console.log(allPokemon);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -30,8 +37,20 @@ const SearchField: React.FC = () => {
       <form onSubmit={handleSubmit}>
         <label>
           Search:&nbsp;
-          <input type="text" value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)} />
+          <input
+            list="all-pokemon"
+            type="text"
+            value={searchInputValue}
+            onChange={(e) => setSearchInputValue(e.target.value)}
+          />
           &nbsp;
+          {allPokemon.data && (
+            <datalist id="all-pokemon">
+              {allPokemon.data.results.map((result) => (
+                <option>{result.name}</option>
+              ))}
+            </datalist>
+          )}
         </label>
         <button>Search</button>
       </form>

@@ -5,6 +5,7 @@ import SearchHistory from '../SearchHistory/SearchHistory';
 import SearchResults from '../SearchResults/SearchResults';
 
 import styles from './App.module.css';
+import { pokemonApi } from '../../store/reducers/PokemonApi';
 
 function App() {
   const handleNavigate = (e) => {
