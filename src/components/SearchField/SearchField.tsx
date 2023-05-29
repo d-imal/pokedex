@@ -14,16 +14,16 @@ const SearchField: React.FC = () => {
   const [searchInputValue, setSearchInputValue] = useState<string>('');
   const searchTerm = useSelector((state: IRootState) => state.search.searchTerm);
 
-  useEffect(() => {
-    getAllPokemon(undefined);
-  }, []);
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
     dispatch(setSearchTerm(searchInputValue));
     dispatch(pushTermToHistory(searchInputValue));
   };
+
+  useEffect(() => {
+    getAllPokemon(undefined);
+  }, []);
 
   useEffect(() => {
     setSearchInputValue(searchTerm);
