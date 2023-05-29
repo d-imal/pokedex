@@ -21,9 +21,16 @@ const SearchResults: React.FC = () => {
       {data?.name && !error && (
         <>
           <h2>{data.name}</h2>
+          {/* <img src={data.sprites?.front_default} alt="pokemon" /> */}
+          {/* <img src={data.sprites?.back_default} alt="pokemon" /> */}
+          <img src={data.sprites?.other['official-artwork'].front_default} alt="pokemon" />
           <dl>
-            <dt>Name:</dt>
-            <dd>{data.name}</dd>
+            <dt>Type:</dt>
+            <dd>
+              {data.types?.map((type, i) => (
+                <li key={i}>{type.type.name}</li>
+              ))}
+            </dd>
             <dt>Height:</dt>
             <dd>{data.height}</dd>
             <dt>Weight:</dt>
@@ -48,12 +55,6 @@ const SearchResults: React.FC = () => {
                 </dd>
               </div>
             ))}
-            <dt>Type:</dt>
-            <dd>
-              {data.types?.map((type, i) => (
-                <li key={i}>{type.type.name}</li>
-              ))}
-            </dd>
             <dt>Species:</dt>
             <dd>{data.species?.name}</dd>
             <dt>Forms:</dt>
@@ -77,11 +78,7 @@ const SearchResults: React.FC = () => {
               ))}
             </dd>
             <dt>Sprites </dt>
-            <dd>
-              <img src={data.sprites?.front_default} alt="pokemon" />
-              {/* <img src={data.sprites?.back_default} alt="pokemon" /> */}
-              <img src={data.sprites?.other['official-artwork'].front_default} alt="pokemon" />
-            </dd>
+            <dd></dd>
           </dl>
         </>
       )}
