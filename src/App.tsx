@@ -3,6 +3,7 @@ import SearchField from './components/SearchField/SearchField';
 import styles from './App.module.css';
 import SearchHistory from './components/SearchHistory/SearchHistory';
 import { useEffect } from 'react';
+import SearchResults from './components/SearchResults/SearchResults';
 
 function App() {
   const handleNavigate = (e) => {
@@ -21,6 +22,7 @@ function App() {
     <div className={styles.root}>
       <div className={styles.search}>
         <SearchField />
+        <SearchResults />
       </div>
       <div className={styles.searchResults}>
         <SearchHistory />
