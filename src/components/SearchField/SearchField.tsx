@@ -3,34 +3,34 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { IRootState } from '../../store/Store';
 import { pokemonApi } from '../../store/reducers/PokemonApi';
-import { setSearchTerm as persistSearchTerm, pushTermToHistory } from '../../store/reducers/Search';
+import { setSearchTerm, pushTermToHistory } from '../../store/reducers/Search';
 
 import classes from './SearchField.module.css';
 
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
   const [trigger] = pokemonApi.useLazyGetPokemonByNameQuery();
-  const [searchTerm, setSearchTerm] = useState<string>('');
-  const persistedSearchTerm = useSelector((state: IRootState) => state.search.searchTerm);
+  const [searchInputValue, setSearchInputValue] = useState<string>('');
+  const searchTerm = useSelector((state: IRootState) => state.search.searchTerm);
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
 
-    dispatch(persistSearchTerm(searchTerm));
-    dispatch(pushTermToHistory(searchTerm));
+    dispatch(setSearchTerm(searchInputValue));
+    dispatch(pushTermToHistory(searchInputValue));
   };
 
   useEffect(() => {
-    setSearchTerm(persistedSearchTerm);
-    trigger(persistedSearchTerm);
-  }, [persistedSearchTerm, trigger]);
+    setSearchInputValue(searchTerm);
+    trigger(searchTerm);
+  }, [searchTerm, trigger]);
 
   return (
     <div className={classes.root}>
       <form onSubmit={handleSubmit}>
         <label>
           Search:&nbsp;
-          <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} />
+          <input type="text" value={searchInputValue} onChange={(e) => setSearchInputValue(e.target.value)} />
           &nbsp;
         </label>
         <button>Search</button>
