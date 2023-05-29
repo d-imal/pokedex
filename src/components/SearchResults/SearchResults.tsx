@@ -25,7 +25,7 @@ const SearchResults: React.FC = () => {
           {data.sprites?.front_default && <img src={data.sprites?.front_default} alt={`${data.name} front`} />}
           {data.sprites?.back_default && <img src={data.sprites?.back_default} alt={`${data.name} back`} />}
 
-          <dl>
+          <dl className={classes.statDefinitionList}>
             <dt>Type:</dt>
             <dd>
               {data.types?.map((type, i) => (
@@ -61,19 +61,21 @@ const SearchResults: React.FC = () => {
           </ul>
 
           <h2>Stats:</h2>
-          {data.stats.map((stat) => (
-            <div key={stat.stat.name}>
-              <dt>{stat.stat.name}</dt>
-              <dd>
-                <dl>
-                  <dt>Effort:</dt>
-                  <dd>{stat.effort}</dd>
-                  <dt>Base Stat:</dt>
-                  <dd>{stat.base_stat}</dd>
-                </dl>
-              </dd>
-            </div>
-          ))}
+          <dl className={classes.statDefinitionGrid}>
+            {data.stats.map((stat) => (
+              <>
+                <dt key={stat.stat.name}>{stat.stat.name}</dt>
+                <dd key={stat.stat.name}>
+                  <dl className={classes.statDefinitionList}>
+                    <dt>Effort:</dt>
+                    <dd>{stat.effort}</dd>
+                    <dt>Base Stat:</dt>
+                    <dd>{stat.base_stat}</dd>
+                  </dl>
+                </dd>
+              </>
+            ))}
+          </dl>
 
           <h2>Moves:</h2>
           <ul>

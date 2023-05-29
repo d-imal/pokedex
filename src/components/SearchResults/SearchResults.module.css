@@ -1,3 +1,15 @@
 .root {
   /* */
 }
+
+.statDefinitionList {
+  display: grid;
+  grid-template-columns: min-content 1fr;
+  gap: 10px;
+}
+
+.statDefinitionGrid {
+  display: grid;
+  grid-template-columns: repeat(4, max-content);
+  gap: 10px;
+}
