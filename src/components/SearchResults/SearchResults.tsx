@@ -21,14 +21,16 @@ const SearchResults: React.FC = () => {
       {data?.name && !error && (
         <>
           <h2>{data.name}</h2>
-          {/* <img src={data.sprites?.front_default} alt="pokemon" /> */}
-          {/* <img src={data.sprites?.back_default} alt="pokemon" /> */}
-          <img src={data.sprites?.other['official-artwork'].front_default} alt="pokemon" />
+          {data.sprites?.front_default && <img src={data.sprites?.front_default} alt={`${data.name} front`} />}
+          {data.sprites?.back_default && <img src={data.sprites?.back_default} alt={`${data.name} back`} />}
           <dl>
             <dt>Type:</dt>
             <dd>
               {data.types?.map((type, i) => (
-                <li key={i}>{type.type.name}</li>
+                <span key={i}>
+                  {type.type.name}
+                  {i === data.types.length - 1 ? '' : ', '}
+                </span>
               ))}
             </dd>
             <dt>Height:</dt>
@@ -77,8 +79,6 @@ const SearchResults: React.FC = () => {
                 <li key={i}>{held_item.item.name}</li>
               ))}
             </dd>
-            <dt>Sprites </dt>
-            <dd></dd>
           </dl>
         </>
       )}
