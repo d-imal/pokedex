@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 
-import SearchField from './components/SearchField/SearchField';
-import SearchHistory from './components/SearchHistory/SearchHistory';
-import SearchResults from './components/SearchResults/SearchResults';
+import SearchField from '../SearchField/SearchField';
+import SearchHistory from '../SearchHistory/SearchHistory';
+import SearchResults from '../SearchResults/SearchResults';
 
 import styles from './App.module.css';
 
