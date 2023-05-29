@@ -1,9 +1,10 @@
+import { useEffect } from 'react';
+
 import SearchField from './components/SearchField/SearchField';
+import SearchHistory from './components/SearchHistory/SearchHistory';
+import SearchResults from './components/SearchResults/SearchResults';
 
 import styles from './App.module.css';
-import SearchHistory from './components/SearchHistory/SearchHistory';
-import { useEffect } from 'react';
-import SearchResults from './components/SearchResults/SearchResults';
 
 function App() {
   const handleNavigate = (e) => {
