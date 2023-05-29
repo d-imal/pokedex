@@ -21,8 +21,10 @@ const SearchResults: React.FC = () => {
       {data?.name && !error && (
         <>
           <h2>{data.name}</h2>
+
           {data.sprites?.front_default && <img src={data.sprites?.front_default} alt={`${data.name} front`} />}
           {data.sprites?.back_default && <img src={data.sprites?.back_default} alt={`${data.name} back`} />}
+
           <dl>
             <dt>Type:</dt>
             <dd>
@@ -33,53 +35,63 @@ const SearchResults: React.FC = () => {
                 </span>
               ))}
             </dd>
-            <dt>Height:</dt>
-            <dd>{data.height}</dd>
-            <dt>Weight:</dt>
-            <dd>{data.weight}</dd>
-            <dt>Abilities:</dt>
-            <ul>
-              {data.abilities?.map((ability, i) => (
-                <li key={i}>{ability.ability.name}</li>
-              ))}
-            </ul>
-            <dt>Stats:</dt>
-            {data.stats.map((stat) => (
-              <div key={stat.stat.name}>
-                <dt>{stat.stat.name}</dt>
-                <dd>
-                  <dl>
-                    <dt>Effort:</dt>
-                    <dd>{stat.effort}</dd>
-                    <dt>Base Stat:</dt>
-                    <dd>{stat.base_stat}</dd>
-                  </dl>
-                </dd>
-              </div>
-            ))}
+
             <dt>Species:</dt>
             <dd>{data.species?.name}</dd>
+
             <dt>Forms:</dt>
             <dd>
               {data.forms?.map((form, i) => (
                 <li key={i}>{form.name}</li>
               ))}
             </dd>
-            <dt>Experience:</dt>
-            <dd>{data.base_experience}</dd>
-            <dt>Moves:</dt>
-            <dd>
-              {data.moves?.map((move, i) => (
-                <li key={i}>{move.move.name}</li>
-              ))}
-            </dd>
-            <dt>Held Items:</dt>
-            <dd>
-              {data.held_items?.map((held_item, i) => (
-                <li key={i}>{held_item.item.name}</li>
-              ))}
-            </dd>
+
+            <dt>Height:</dt>
+            <dd>{data.height}</dd>
+
+            <dt>Weight:</dt>
+            <dd>{data.weight}</dd>
           </dl>
+
+          <h2>Abilities:</h2>
+          <ul>
+            {data.abilities?.map((ability, i) => (
+              <li key={i}>{ability.ability.name}</li>
+            ))}
+          </ul>
+
+          <h2>Stats:</h2>
+          {data.stats.map((stat) => (
+            <div key={stat.stat.name}>
+              <dt>{stat.stat.name}</dt>
+              <dd>
+                <dl>
+                  <dt>Effort:</dt>
+                  <dd>{stat.effort}</dd>
+                  <dt>Base Stat:</dt>
+                  <dd>{stat.base_stat}</dd>
+                </dl>
+              </dd>
+            </div>
+          ))}
+
+          <h2>Moves:</h2>
+          <ul>
+            {data.moves?.map((move, i) => (
+              <li key={i}>{move.move.name}</li>
+            ))}
+          </ul>
+
+          {data.held_items?.length > 0 && (
+            <>
+              <h2>Held Items:</h2>
+              <ul>
+                {data.held_items?.map((held_item, i) => (
+                  <li key={i}>{held_item.item.name}</li>
+                ))}
+              </ul>
+            </>
+          )}
         </>
       )}
     </div>
