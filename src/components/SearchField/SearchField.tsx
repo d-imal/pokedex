@@ -24,7 +24,7 @@ const SearchField: React.FC = () => {
   useEffect(() => {
     setSearchTerm(persistedSearchTerm);
     trigger(persistedSearchTerm);
-  }, [persistedSearchTerm]);
+  }, [persistedSearchTerm, trigger]);
 
   console.log({ persistedSearchTerm });
 
