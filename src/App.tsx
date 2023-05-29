@@ -8,6 +8,7 @@ function App() {
   const handleNavigate = (e) => {
     console.log('navgate', e);
   };
+
   useEffect(() => {
     window.navigation.addEventListener('navigate', handleNavigate);
 

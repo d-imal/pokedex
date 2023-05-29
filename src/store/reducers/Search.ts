@@ -17,10 +17,12 @@ const searchSlice = createSlice({
   reducers: {
     setSearchTerm(state, action: PayloadAction<string>) {
       state.searchTerm = action.payload;
+    },
+    pushTermToHistory(state, action: PayloadAction<string>) {
       state.history.push(action.payload);
     },
   },
 });
 
-export const { setSearchTerm } = searchSlice.actions;
+export const { setSearchTerm, pushTermToHistory } = searchSlice.actions;
 export default searchSlice.reducer;
