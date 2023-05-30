@@ -42,7 +42,10 @@ const SearchResults: React.FC = () => {
             <dt>Forms:</dt>
             <dd>
               {data.forms?.map((form, i) => (
-                <li key={i}>{form.name}</li>
+                <span key={i}>
+                  {form.name}
+                  {i === data.forms.length - 1 ? '' : ', '}
+                </span>
               ))}
             </dd>
 
