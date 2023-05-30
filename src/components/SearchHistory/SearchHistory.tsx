@@ -7,6 +7,10 @@ import { setSearchTerm } from '../../store/reducers/Search.slice';
 const SearchHistory: React.FC = () => {
   const dispatch = useDispatch();
   const { history } = useSelector((state: IRootState) => state.search);
+  const makeOnClick = (term: string) => (e: React.MouseEvent) => {
+    e.preventDefault();
+    dispatch(setSearchTerm(term));
+  };
 
   return (
     <aside>
@@ -15,14 +19,7 @@ const SearchHistory: React.FC = () => {
       <ul>
         {history.map((term, i) => (
           <li key={i}>
-            <button
-              onClick={(e) => {
-                e.preventDefault();
-                dispatch(setSearchTerm(term));
-              }}
-            >
-              {term}
-            </button>
+            <button onClick={makeOnClick(term)}>{term}</button>
           </li>
         ))}
       </ul>
