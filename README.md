@@ -1,5 +1,23 @@
 # Pokedex - Daniel Imal
 
+## Getting Started
+
+To install dependencies:
+
+```
+$ yarn install
+```
+
+To start the dev server:
+
+```
+$ yarn dev
+```
+
+A server will start on http://localhost:5173/
+
+## Notes
+
 I think that all the required functionality was completed. I added a little CSS to improve the layout, but I'm not a designer, so that's the best I could come up with. I also added a quick and dirty autocomplete using a `<datalist>`, so the user doesn't need to remember every single Pokemon name exactly. Some things to note:
 
 - The requirements said to provide guidance on running in a concurrent environment. I admit, this is very difficult for me to imagine without specifics.
