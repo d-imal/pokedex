@@ -5,7 +5,7 @@ import { IRootState } from '../../store/Store';
 import { pokemonApi } from '../../store/reducers/Pokemon.service';
 import { setSearchTerm, pushTermToHistory } from '../../store/reducers/Search.slice';
 
-import classes from './SearchField.module.css';
+import styles from './SearchField.module.css';
 
 const SearchField: React.FC = () => {
   const dispatch = useDispatch();
@@ -31,7 +31,7 @@ const SearchField: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <form onSubmit={handleSubmit} className={classes.root}>
+    <form onSubmit={handleSubmit} className={styles.root}>
       <label>
         Search
         <input
@@ -39,7 +39,7 @@ const SearchField: React.FC = () => {
           type="text"
           value={searchInputValue}
           onChange={(e) => setSearchInputValue(e.target.value)}
-          className={classes.input}
+          className={styles.input}
           placeholder="enter pokemon"
         />
         {allPokemon.data && searchInputValue.length > 1 && (

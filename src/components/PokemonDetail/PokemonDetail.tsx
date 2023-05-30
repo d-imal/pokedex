@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { IRootState } from '../../store/Store';
 import { pokemonApi } from '../../store/reducers/Pokemon.service';
 
-import classes from './PokemonDetail.module.css';
+import styles from './PokemonDetail.module.css';
 
 const SearchResults: React.FC = () => {
   const [trigger, { data, error }] = pokemonApi.useLazyGetPokemonByNameQuery();
@@ -15,17 +15,17 @@ const SearchResults: React.FC = () => {
   }, [searchTerm, trigger]);
 
   return (
-    <div className={classes.root}>
+    <div className={styles.root}>
       {error && <p>Oh no, there was an error</p>}
 
       {data?.name && !error && (
         <>
-          <h2 className={classes.title}>{data.name}</h2>
+          <h2 className={styles.title}>{data.name}</h2>
 
           {data.sprites?.front_default && <img src={data.sprites?.front_default} alt={`${data.name} front`} />}
           {data.sprites?.back_default && <img src={data.sprites?.back_default} alt={`${data.name} back`} />}
 
-          <dl className={classes.statDefinitionList}>
+          <dl className={styles.statDefinitionList}>
             <dt>Type:</dt>
             <dd>
               {data.types?.map((type, i) => (
@@ -64,12 +64,12 @@ const SearchResults: React.FC = () => {
           </ul>
 
           <h2>Stats:</h2>
-          <div className={classes.statDefinitionGrid}>
+          <div className={styles.statDefinitionGrid}>
             {data.stats.map((stat) => (
               <div key={stat.stat.name}>
                 <h3>{stat.stat.name}</h3>
                 <dd>
-                  <dl className={classes.statDefinitionList}>
+                  <dl className={styles.statDefinitionList}>
                     <dt>Effort:</dt>
                     <dd>{stat.effort}</dd>
                     <dt>Stat:</dt>
