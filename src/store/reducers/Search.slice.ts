@@ -25,4 +25,5 @@ const searchSlice = createSlice({
 });
 
 export const { setSearchTerm, pushTermToHistory } = searchSlice.actions;
+
 export default searchSlice.reducer;
