@@ -63,9 +63,9 @@ const SearchResults: React.FC = () => {
           <h2>Stats:</h2>
           <div className={classes.statDefinitionGrid}>
             {data.stats.map((stat) => (
-              <div>
-                <h3 key={stat.stat.name}>{stat.stat.name}</h3>
-                <dd key={stat.stat.name}>
+              <div key={stat.stat.name}>
+                <h3>{stat.stat.name}</h3>
+                <dd>
                   <dl className={classes.statDefinitionList}>
                     <dt>Effort:</dt>
                     <dd>{stat.effort}</dd>

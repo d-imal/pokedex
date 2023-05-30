@@ -45,7 +45,7 @@ const SearchField: React.FC = () => {
           {allPokemon.data && searchInputValue.length > 1 && (
             <datalist id="all-pokemon">
               {allPokemon.data.results.map((result) => (
-                <option>{result.name}</option>
+                <option key={result.name}>{result.name}</option>
               ))}
             </datalist>
           )}
