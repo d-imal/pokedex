@@ -2,6 +2,10 @@
   /* */
 }
 
+.title {
+  text-transform: capitalize;
+}
+
 .statDefinitionList {
   display: grid;
   grid-template-columns: min-content 1fr;

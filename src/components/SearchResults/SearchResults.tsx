@@ -20,7 +20,7 @@ const SearchResults: React.FC = () => {
 
       {data?.name && !error && (
         <>
-          <h2>{data.name}</h2>
+          <h2 className={classes.title}>{data.name}</h2>
 
           {data.sprites?.front_default && <img src={data.sprites?.front_default} alt={`${data.name} front`} />}
           {data.sprites?.back_default && <img src={data.sprites?.back_default} alt={`${data.name} back`} />}

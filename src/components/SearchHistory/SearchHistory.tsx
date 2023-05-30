@@ -10,25 +10,24 @@ const SearchHistory: React.FC = (props) => {
   const { history } = useSelector((state: IRootState) => state.search);
 
   return (
-    <div className={styles.root}>
-      SearchHistory
+    <aside className={styles.root}>
+      <h2>Search History</h2>
+
       <ul>
         {history.map((term, i) => (
           <li key={i}>
-            <a
-              href={`/${term}`}
+            <button
               onClick={(e) => {
                 e.preventDefault();
-                window.history.pushState({ search: term }, '', `/${term}`);
                 dispatch(setSearchTerm(term));
               }}
             >
               {term}
-            </a>
+            </button>
           </li>
         ))}
       </ul>
-    </div>
+    </aside>
   );
 };
 
