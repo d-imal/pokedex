@@ -23,7 +23,9 @@ const SearchField: React.FC = () => {
 
   useEffect(() => {
     getAllPokemon(undefined);
-  }, [getAllPokemon]);
+    // We only want to trigger this query once
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   useEffect(() => {
     setSearchInputValue(searchTerm);
