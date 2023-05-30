@@ -31,28 +31,28 @@ const SearchField: React.FC = () => {
   }, [searchTerm]);
 
   return (
-    <div className={classes.root}>
-      <form onSubmit={handleSubmit}>
-        <label>
-          Search:&nbsp;
-          <input
-            list="all-pokemon"
-            type="text"
-            value={searchInputValue}
-            onChange={(e) => setSearchInputValue(e.target.value)}
-          />
-          &nbsp;
-          {allPokemon.data && searchInputValue.length > 1 && (
-            <datalist id="all-pokemon">
-              {allPokemon.data.results.map((result) => (
-                <option key={result.name}>{result.name}</option>
-              ))}
-            </datalist>
-          )}
-        </label>
-        <button>Search</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit} className={classes.root}>
+      <label>
+        Search
+        <input
+          list="all-pokemon"
+          type="text"
+          value={searchInputValue}
+          onChange={(e) => setSearchInputValue(e.target.value)}
+          className={classes.input}
+          placeholder="enter pokemon"
+        />
+        {allPokemon.data && searchInputValue.length > 1 && (
+          <datalist id="all-pokemon">
+            {allPokemon.data.results.map((result) => (
+              <option key={result.name}>{result.name}</option>
+            ))}
+          </datalist>
+        )}
+      </label>
+
+      <button>Search</button>
+    </form>
   );
 };
 
