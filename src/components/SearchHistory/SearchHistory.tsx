@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { IRootState } from '../../store/Store';
 import { setSearchTerm } from '../../store/reducers/Search.slice';
 
-const SearchHistory: React.FC = (props) => {
+const SearchHistory: React.FC = () => {
   const dispatch = useDispatch();
   const { history } = useSelector((state: IRootState) => state.search);
 
