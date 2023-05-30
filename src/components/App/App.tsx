@@ -1,6 +1,6 @@
 import SearchField from '../SearchField/SearchField';
 import SearchHistory from '../SearchHistory/SearchHistory';
-import SearchResults from '../SearchResults/SearchResults';
+import SearchResults from '../PokemonDetail/PokemonDetail';
 
 import styles from './App.module.css';
 

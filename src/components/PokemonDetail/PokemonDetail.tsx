@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 import { IRootState } from '../../store/Store';
 import { pokemonApi } from '../../store/reducers/Pokemon.service';
 
-import classes from './SearchResults.module.css';
+import classes from './PokemonDetail.module.css';
 
 const SearchResults: React.FC = () => {
   const [trigger, { data, error }] = pokemonApi.useLazyGetPokemonByNameQuery();
