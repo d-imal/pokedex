@@ -23,12 +23,12 @@ const SearchField: React.FC = () => {
 
   useEffect(() => {
     getAllPokemon(undefined);
-  }, []);
+  }, [getAllPokemon]);
 
   useEffect(() => {
     setSearchInputValue(searchTerm);
     getPokemonByName(searchTerm);
-  }, [searchTerm]);
+  }, [searchTerm, setSearchInputValue, getPokemonByName]);
 
   return (
     <form onSubmit={handleSubmit} className={styles.root}>
